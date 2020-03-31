@@ -1,7 +1,5 @@
 <!doctype html>
-<html lang="en">
-
-<head>
+<html lang="en"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="IPL visualization">
@@ -10,15 +8,21 @@
     <title>
         IPL visualization
     </title>
+    
 </head>
-
 <body>
     <h1>IPL Dataset visualization</h1>
-    <div id="matches-played-per-year" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div class="container">
+        <div id="matches-played-per-year" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
+        <div id="team-won-most-matches" style="min-width: 510px; height: 600px; margin: 0 auto"></div>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+        <div id="extra-runs" style="min-width: 410px; height: 500px; margin: 0 auto"></div>
 
-    <script src="./app.js"></script>
+        <div id="economy-rates" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
+        <div id="man-of-the-match" style="min-width: 410px; height: 500px; margin: 0 auto"></div>
+
+</div>  
+    <script src="https://code.highcharts.com/highcharts.js"></script>    <script src="./app.js"></script>
 </body>

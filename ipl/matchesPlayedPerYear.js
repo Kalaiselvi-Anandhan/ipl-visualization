@@ -8,6 +8,7 @@ function matchesPlayedPerYear(matches) {
       result[season] = 1;
     }
   }
+  //console.log(result);
   return result;
 }
 
