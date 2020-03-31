@@ -1,5 +1,4 @@
-function mostManOfTheMatch(matches) {
-    //top5 Man_oF_the_match 
+function mostManOfTheMatch(matches) { 
     const result = {};
     const winnerteam={}
     var obj={};
@@ -37,7 +36,7 @@ function mostManOfTheMatch(matches) {
         copy[index]=0;
 
     }
-    console.log(winnerteam);
+    //console.log(winnerteam);
     //console.log(team);
     return obj;
   }

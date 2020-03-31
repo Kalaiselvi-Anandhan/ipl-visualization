@@ -22,7 +22,7 @@ function teamWonMostMatches(matches) {
       }
     }
   }
-  console.log(obj);
+  //console.log(obj);
   return obj;
 }
   

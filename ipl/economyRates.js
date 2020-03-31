@@ -4,6 +4,7 @@ function economyRates(matches,deliveries){
     var over={};//for find the total balls throwed by each bowlers
     var bowlersrun={};//for find the total runs given by each bowlers
     var arr=[];
+
     var economical_rate=[];
     for(let e of matches){
         if(e["season"]==2015){
@@ -29,8 +30,6 @@ function economyRates(matches,deliveries){
 
     for(let e in over){ 
         var res=bowlersrun[e]/(over[e]/6);//calculate economical rate
-        // economical_rate.push(Number(res.toFixed(2)));
-        // obj[e]=Number(res.toFixed(2));
         economical_rate.push(res);
         obj[e]=res;
     }
@@ -38,7 +37,7 @@ function economyRates(matches,deliveries){
     var names=Object.keys(obj);//fetching the bowlers name
     var duplicate=economical_rate;
 
-    for(let i=0;i<10;i++){//for finding the top 10 bowlers
+    for(let i=0;i<10;i++){ //for finding the top 10 bowlers
         var min=Math.min(...economical_rate);
         var index=duplicate.indexOf(min);
         result[i]={"bowler":names[index],"economy":Number(min.toFixed(2))};
