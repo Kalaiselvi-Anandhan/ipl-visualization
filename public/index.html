@@ -12,17 +12,28 @@
 </head>
 <body>
     <h1>IPL Dataset visualization</h1>
-    <div class="container">
-        <div id="matches-played-per-year" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div class="input">
+      <form action="economy" method="get">
+        <span class="label">Enter the Year :</span>
+        <input type="number" class="input-year" name="year" placeholder="2008 - 2019" step="1" min="2008" max="2019" required>
+        <span class="validity"></span>
+        <button type="submit" class="year-button" onClick="refresh(event)">Submit</button>
+      </form>
+    </div>
 
-        <div id="team-won-most-matches" style="min-width: 510px; height: 600px; margin: 0 auto"></div>
+    <div id="economyrate-per-year" class="container" style="min-width: 310px; height: 500px;"></div>
 
-        <div id="extra-runs" style="min-width: 410px; height: 500px; margin: 0 auto"></div>
+    <div id="matches-played-per-year" class="container" style="min-width: 310px; height: 500px; "></div>
 
-        <div id="economy-rates" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="team-won-most-matches" class="container" style="min-width: 310px; height: 500px; "></div>
 
-        <div id="man-of-the-match" style="min-width: 410px; height: 500px; margin: 0 auto"></div>
+    <div id="extra-runs" class="container" style="min-width: 310px; height: 500px; "></div>
 
-</div>  
+    <div id="economy-rates" class="container" style="min-width: 310px; height: 500px;"></div>
+
+    <div id="man-of-the-match" class="container" style="min-width: 310px; height: 500px;"></div>
+
+  
     <script src="https://code.highcharts.com/highcharts.js"></script>    <script src="./app.js"></script>
 </body>
+</html>

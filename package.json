@@ -1,7 +1,7 @@
 {
   "name": "ipl_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "**1: Install Node**",
   "main": "index.js",
   "scripts": {
     "ipl": "node index.js",
@@ -12,6 +12,16 @@
   "license": "ISC",
   "dependencies": {
     "csvtojson": "^2.0.10",
+    "express": "^4.17.1",
     "http-server": "^0.12.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/mountblue/propel/ipl.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/mountblue/propel/ipl/issues"
+  },
+  "homepage": "https://gitlab.com/mountblue/propel/ipl#readme"
 }

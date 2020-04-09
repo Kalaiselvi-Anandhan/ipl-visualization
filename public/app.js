@@ -1,9 +1,91 @@
+var year=document.querySelector("input").value
+
+function refresh(event){
+  event.preventDefault();
+  location.reload();
+}
+
+document.querySelector("form").addEventListener("submit",getValue());
+
+function getValue(){
+  console.log(year);
+  if(year>=2008&&year<=2019){
+    fetch(`/economy?year=${year}`)
+    .then(response=>response.json())
+    .then(res=>{
+      renderEcoYear(res)
+    });
+  }
+  else{
+    document.querySelector("#economyrate-per-year").innerHTML="";
+  }
+  document.querySelector("input").value="";
+}
+function renderEcoYear(val){
+  var seriesData=[];
+  if(Array.isArray(val)){
+    for(let e of val){
+      seriesData.push([e.bowler,e.economy]);
+    }
+
+  Highcharts.chart("economyrate-per-year", {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: `4. Top 10 economical bowlers in ${year}`
+    },
+    subtitle: {
+        text: 'Source: <a href="https://www.kaggle.com/nowke9/ipldata/data">IPL Dataset</a>'
+    },
+    xAxis: {
+        type: 'category',
+        labels: {
+            rotation: -45,
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Economy Rates'
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        pointFormat: 'Economy Rate: <b>{point.y:.1f}</b>'
+    },
+    series: [{
+        name: 'economyRate',
+        data: seriesData,
+        dataLabels: {
+            enabled: true,
+            rotation: -90,
+            color: '#DC143C',
+            align: 'right',
+            format: '{point.y:.2f}', // one decimal
+            y: 5, // 10 pixels down from the top
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    }]
+});
+}
+}
+setInterval(renderEcoYear,1000);
+
 function fetchAndVisualizeData() {
   fetch("./data.json")
     .then(r => r.json())
     .then(visualizeData);
 }
-
 fetchAndVisualizeData();
 
 function visualizeData(data) {
@@ -62,7 +144,7 @@ function visualizeteamWonMatchesoverallyears(teamWonMostMatches) {
       }
     }
   }
-  console.log(seriesData,keys);
+  //console.log(seriesData,keys);
   var len=keys.length;
   for(let i=0;i<len;i++){
     var values=[];

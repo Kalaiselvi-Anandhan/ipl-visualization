@@ -1,3 +1,37 @@
 body {
     font-family: sans-serif;
 }
+.input, h1 {
+    margin: 3rem;
+}
+.input .label {
+    font-size: 1.5rem;
+}
+.input-year{
+    font-size:1.5rem;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+input:invalid+span:after {
+    content: '✖ Invalid Input ';
+    background-color:red;
+    font-size:2rem;
+    margin: 1rem;
+  }
+  
+  input:valid+span:after {
+    content: '✓ Valid Input ';
+    background-color:greenyellow;
+    font-size: 2rem;
+    margin: 1rem;
+  }
+.year-button{
+    font-size: 1.5rem;
+    text-align: center;
+    color:white;
+    margin: 1.5rem;
+}
+.container {
+    border:1mm dotted black;
+    margin: 3rem;
+}
