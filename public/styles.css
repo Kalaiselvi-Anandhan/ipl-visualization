@@ -12,14 +12,14 @@ body {
     margin-left:1rem;
     margin-right:1rem;
 }
-input:invalid+span:after {
+input:invalid+span::after {
     content: '✖ Invalid Input ';
     background-color:red;
     font-size:2rem;
     margin: 1rem;
   }
   
-  input:valid+span:after {
+  input:valid+span::after {
     content: '✓ Valid Input ';
     background-color:greenyellow;
     font-size: 2rem;

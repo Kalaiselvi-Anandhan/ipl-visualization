@@ -1,27 +1,24 @@
 {
-  "name": "ipl_project",
+  "name": "ipl-visualization",
   "version": "1.0.0",
   "description": "**1: Install Node**",
   "main": "index.js",
   "scripts": {
-    "ipl": "node index.js",
-    "start": "http-server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kalaiselvi-Anandhan/ipl-visualization.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kalaiselvi-Anandhan/ipl-visualization/issues"
+  },
+  "homepage": "https://github.com/Kalaiselvi-Anandhan/ipl-visualization#readme",
   "dependencies": {
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "http-server": "^0.12.1"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/mountblue/propel/ipl.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/mountblue/propel/ipl/issues"
-  },
-  "homepage": "https://gitlab.com/mountblue/propel/ipl#readme"
+  }
 }

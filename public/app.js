@@ -1,30 +1,20 @@
-var year=document.querySelector("input").value
+var form=document.querySelector("form");
+form.addEventListener("submit",getValue);
 
-function refresh(event){
+function getValue(event){
+  var year=Number(form.elements[0].value);
   event.preventDefault();
-  location.reload();
-}
-
-document.querySelector("form").addEventListener("submit",getValue());
-
-function getValue(){
-  console.log(year);
   if(year>=2008&&year<=2019){
     fetch(`/economy?year=${year}`)
     .then(response=>response.json())
     .then(res=>{
-      renderEcoYear(res)
+        renderEcoYear(res,year)
     });
   }
-  else{
-    document.querySelector("#economyrate-per-year").innerHTML="";
-  }
-  document.querySelector("input").value="";
 }
-function renderEcoYear(val){
+function renderEcoYear(res,year){
   var seriesData=[];
-  if(Array.isArray(val)){
-    for(let e of val){
+    for(let e of res){
       seriesData.push([e.bowler,e.economy]);
     }
 
@@ -78,12 +68,11 @@ function renderEcoYear(val){
     }]
 });
 }
-}
-setInterval(renderEcoYear,1000);
+//}
 
 function fetchAndVisualizeData() {
   fetch("./data.json")
-    .then(r => r.json())
+    .then(res => res.json())
     .then(visualizeData);
 }
 fetchAndVisualizeData();
@@ -144,7 +133,6 @@ function visualizeteamWonMatchesoverallyears(teamWonMostMatches) {
       }
     }
   }
-  //console.log(seriesData,keys);
   var len=keys.length;
   for(let i=0;i<len;i++){
     var values=[];
