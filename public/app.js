@@ -1,16 +1,21 @@
+function fetchAndVisualizeData() {
+  fetch("./data.json")
+    .then(res => res.json())
+    .then(visualizeData);
+}
+fetchAndVisualizeData();
+
 var form=document.querySelector("form");
 form.addEventListener("submit",getValue);
 
 function getValue(event){
   var year=Number(form.elements[0].value);
   event.preventDefault();
-  if(year>=2008&&year<=2019){
     fetch(`/economy?year=${year}`)
     .then(response=>response.json())
     .then(res=>{
         renderEcoYear(res,year)
     });
-  }
 }
 function renderEcoYear(res,year){
   var seriesData=[];
@@ -68,14 +73,6 @@ function renderEcoYear(res,year){
     }]
 });
 }
-//}
-
-function fetchAndVisualizeData() {
-  fetch("./data.json")
-    .then(res => res.json())
-    .then(visualizeData);
-}
-fetchAndVisualizeData();
 
 function visualizeData(data) {
   visualizeMatchesPlayedPerYear(data.matchesPlayedPerYear);
